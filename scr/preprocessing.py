@@ -7,7 +7,7 @@ import pandas as pd
 
 
 def read_file(path, item, time):
-    temp = pd.read_csv(path  + '/' + item + '_' + time + '.csv', encoding = 'utf-8')
+    temp = pd.read_csv(path  + '/' + item + '_' + time + '.csv', encoding = 'utf-8', parse_dates=True)
     print("Reading " + item + "_" + time + ".csv ...")
     print("Loaded " + str(len(temp)) + " lines of data.")
     # data = pd.DataFrame({columns_name:[] for columns_name in temp.columns.values.tolist()})
@@ -41,7 +41,7 @@ if __name__  == '__main__':
     # 获取时间端点
     f_period = [int(timelist[0][0:8]), int(timelist[-1][9:18])]
     # 合并数据
-    merge_file(path, itemlist, timelist)
+    merge_file(path, out, itemlist, timelist)
     
     # 2014年到2017年数据提取到文件夹“case”
     timelist1 = ['20140101_20140228','20140301_20140430','20140501_20140630',\
