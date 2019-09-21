@@ -49,10 +49,7 @@ if __name__  == '__main__':
     # 去除噪音
     df_c = prepare_data(df)
     # 提取区间
-    df_sf = df_c[df_c['SEQ_NO'] == 0]
-    df_bt = df_c[df_c['DEPTH(m.DL)'] < -9.0]
-    df_md = df_c[(df_c['DEPTH(m.DL)'] < -4.5) & (df_c['DEPTH(m.DL)'] > -5.5)]
     
-    df_sf.to_csv(path+"/layers/water_surface.csv", sep=',', encoding = "utf-8");
-    df_md.to_csv(path+"/layers/water_middle.csv", sep=',', encoding = "utf-8")
-    df_bt.to_csv(path+"/layers/water_bottom.csv", sep=',', encoding = "utf-8")
+    for i in range(14):
+        df_sf = df_c[df_c['SEQ_NO'] == i]
+        df_sf.to_csv(path+'/layers/water_'+'{:0>2d}'.format(i)+'.csv', sep=',', encoding = "utf-8")
