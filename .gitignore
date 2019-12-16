@@ -1,3 +1,5 @@
 
 *.tkb
 .DS_Store
+data/hycom/matlab/tokyobay_large/hycom_2015_2016.mat
+data/hycom/matlab/hycom.mat
